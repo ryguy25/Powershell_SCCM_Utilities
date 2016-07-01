@@ -1,4 +1,4 @@
-﻿Function Wake-CMDevice {
+Function Wake-CMDevice {
 
 <#
   .SYNOPSIS
@@ -6,8 +6,15 @@
     This functionality is highly dependent on an accurate Hardware Inventory in SCCM.
   .PARAMETER ComputerName
     The hostname of the device that you want to wake up
-  .PARAMETER SCCMServer
-    Optional parameter provided to allow connection to specific SCCM Server 
+  .PARAMETER Port
+    Allows you to specify the port you want to use for the UDP WOL packet
+  .PARAMETER Broadcast
+    Switch parameter that allows you to specify a broadcast directed WOL packet
+  .PARAMETER Unicast
+    Switch parameter that allows you to specify a unicast directed WOL package
+  .PARAMETER QueryDNS
+    Switch parameter that indicates you would like the function to query local DNS for the computer's network information instead
+    of getting the information from SCCM's network adapter information.
   .EXAMPLE
     Wake-CMDevice -ComputerName IT-TEST-7006
       Will attempt to send a "Magic Packet" to a computer named "IT-TEST-7006" based on the network information queried from SCCM
